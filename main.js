@@ -1,7 +1,8 @@
 var plr1 = {'name': prompt("What's your name?"), 'weapon': null, score: 0};
 var plr2 = {name: prompt("What's your name?"), weapon: null, score: 0};
+var rounds = Number(prompt('How many rounds would you like to play?'));
 function playRounds(plr1, plr2) {
-  for (var round = 1; round <= 5; round++) {
+  for (var round = 1; round <= rounds; round++) {
     var weaponOfChoice = weapons[parseInt(Math.random()*weapons.length) %3];
     var AIWeaponOfChoice = weapons[parseInt(Math.random()*weapons.length) %3];
     plr1.weapon = weaponOfChoice;
@@ -15,7 +16,7 @@ function playRounds(plr1, plr2) {
       alert(plr2.name + ' won round ' + round + '!');
       plr2.score += 1
     } else {
-      alert('Tie!');
+      alert('Tied!');
     }
     alert(plr1.score + '-' + plr2.score)
   }
