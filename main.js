@@ -1,5 +1,5 @@
 function start() {
-  var plr1 = {'name': prompt("What's your name?"), 'weapon': null, 'score': 0, result: null};
+  var plr1 = {'name': prompt("What's your name?"), 'weapon': null, 'score': 0, 'result': null};
   var plr2 = {name: prompt("What's your name?"), weapon: null, score: 0, result: null};
   var rounds = Number(prompt('How many rounds would you like to play?'));
   if (rounds > 45) {
@@ -20,7 +20,8 @@ function start() {
         alert(plr2.name + ' won round ' + round + '!');
         plr2.score += 1
       } else {
-        alert('Tied!');
+        alert('Tie!');
+        continue;
       }
       alert(plr1.score + '-' + plr2.score)
     }
@@ -49,10 +50,10 @@ function start() {
   document.getElementById('end-results').textContent = plr1.name + ': ' + plr1.result + '; ' + plr2.name + ': ' + plr2.result;
   if (plr1.result === 'LOSS') {
     points = plr2.score - plr1.score;
-    document.getElementById('by').textContent = 'You lost by ' + points + ' points!';
+    document.getElementById('by').textContent = plr2.name + ' won by ' + points + ' points!';
   } else if (plr1.result === 'WIN') {
     points = plr1.score - plr2.score;
-    document.getElementById('by').textContent = 'You won by ' + points + ' points!';
+    document.getElementById('by').textContent = plr1.name + ' won by ' + points + ' points!';
   } else {
     points = null;
     document.getElementById('by').textContent = 'You tied by ' + plr1.score + ' points!';
